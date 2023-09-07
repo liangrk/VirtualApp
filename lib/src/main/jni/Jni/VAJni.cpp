@@ -21,6 +21,10 @@ static void jni_nativeLaunchEngine(JNIEnv *env, jclass clazz, jobjectArray javaM
                   audioRecordMethodType);
 }
 
+static void jni_nativeMark(JNIEnv *env, jclass jclazz) {
+    // todo: 后续需要补齐!!!!
+}
+
 
 static void
 jni_nativeEnableIORedirect(JNIEnv *env, jclass, jstring soPath, jstring soPath64,

@@ -5,8 +5,9 @@ import android.content.pm.PackageManager;
 import android.os.Binder;
 import android.os.Build;
 import android.os.Process;
-import android.support.annotation.Keep;
 import android.util.Pair;
+
+import androidx.annotation.Keep;
 
 import com.lody.virtual.client.core.VirtualCore;
 import com.lody.virtual.client.env.VirtualRuntime;

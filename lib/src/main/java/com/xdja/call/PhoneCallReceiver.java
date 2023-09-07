@@ -1,6 +1,7 @@
 package com.xdja.call;
 
 import android.Manifest;
+import android.annotation.SuppressLint;
 import android.content.BroadcastReceiver;
 import android.content.ContentValues;
 import android.content.Context;
@@ -11,8 +12,9 @@ import android.database.Cursor;
 import android.os.Build;
 import android.os.RemoteException;
 import android.provider.CallLog;
-import android.support.v4.app.ActivityCompat;
 import android.util.Log;
+
+import androidx.core.app.ActivityCompat;
 
 import com.lody.virtual.client.core.VirtualCore;
 import com.xdja.utils.Stirrer;
@@ -68,7 +70,8 @@ public class PhoneCallReceiver extends BroadcastReceiver {
                 } catch (RemoteException e) {
                     e.printStackTrace();
                 }
-                int id = cursor.getInt(cursor.getColumnIndex(CallLog.Calls._ID));
+                // todo: 这里强行忽略问题
+                @SuppressLint("Range") int id = cursor.getInt(cursor.getColumnIndex(CallLog.Calls._ID));
                 if (ActivityCompat.checkSelfPermission(VirtualCore.get().getContext(), Manifest.permission.WRITE_CALL_LOG) != PackageManager.PERMISSION_GRANTED) {
                     Log.e("xela", this.getClass() + " do not have permission to write call log.");
                     return;

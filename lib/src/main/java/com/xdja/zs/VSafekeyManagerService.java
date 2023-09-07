@@ -5,7 +5,7 @@ import android.os.RemoteException;
 import android.util.Pair;
 
 import com.lody.virtual.helper.utils.VLog;
-import com.xdja.SafeKey.JNIAPI;
+//import com.xdja.SafeKey.JNIAPI;
 import com.xdja.multi.unitepin.jar.MultiChipUnitePinManager;
 import com.xdja.multichip.jniapi.JarJniApiProxy;
 import com.xdja.multichip.jniapi.JarMultiJniApiManager;
@@ -300,31 +300,32 @@ public class VSafekeyManagerService extends IVSafekey.Stub {
         for(int i=0; i<keylen; i++){
             seckey[i] = 0;
         }
-        try {
-            VLog.e(TAG, "VS encryptKey");
-            byte encrypt_kID = 0x08;
-            int ret = -1;
-            if(jniProxy != null) {
-                if (jniProxy.getCardType() == JniApiParam.TYPE_VHSM ||
-                        jniProxy.getCardType() == JniApiParam.TYPE_VHSM_NET) {
-                    ret = jniApiVhsmManager.SM4(jniProxy, key, keylen, JNIAPI.ECB_ENCRYPT, seckey, encrypt_kID, null);
-                } else {
-                    ret = jniProxy.SM1(key, keylen, JNIAPI.ECB_ENCRYPT, seckey, encrypt_kID, null);
-                }
-                if(ret < 0){
-                    visitSafeKeyErrorCallback(ret);
-                }
-            }
-            if(ret < 0){
-                visitSafeKeyErrorCallback(ret);
-            }
-            VLog.e(TAG, "VS encryptKey ret "+ ret);
-            return seckey;
-        }catch (Exception e){
-            visitSafeKeyErrorCallback(-1);
-            e.printStackTrace();
-            return seckey;
-        }
+//        try {
+//            VLog.e(TAG, "VS encryptKey");
+//            byte encrypt_kID = 0x08;
+//            int ret = -1;
+//            if(jniProxy != null) {
+//                if (jniProxy.getCardType() == JniApiParam.TYPE_VHSM ||
+//                        jniProxy.getCardType() == JniApiParam.TYPE_VHSM_NET) {
+//                    ret = jniApiVhsmManager.SM4(jniProxy, key, keylen, JNIAPI.ECB_ENCRYPT, seckey, encrypt_kID, null);
+//                } else {
+//                    ret = jniProxy.SM1(key, keylen, JNIAPI.ECB_ENCRYPT, seckey, encrypt_kID, null);
+//                }
+//                if(ret < 0){
+//                    visitSafeKeyErrorCallback(ret);
+//                }
+//            }
+//            if(ret < 0){
+//                visitSafeKeyErrorCallback(ret);
+//            }
+//            VLog.e(TAG, "VS encryptKey ret "+ ret);
+//            return seckey;
+//        }catch (Exception e){
+//            visitSafeKeyErrorCallback(-1);
+//            e.printStackTrace();
+//            return seckey;
+//        }
+        return seckey;
     }
 
     @Override
@@ -333,31 +334,32 @@ public class VSafekeyManagerService extends IVSafekey.Stub {
         for(int i=0; i<seckeylen; i++){
             key[i] = 0;
         }
-        try {
-            VLog.e(TAG, "VS decryptKey");
-            byte decrypt_kID = 0x09;
-            int ret = -1;
-            if(jniProxy != null) {
-                if (jniProxy.getCardType() == JniApiParam.TYPE_VHSM ||
-                jniProxy.getCardType() == JniApiParam.TYPE_VHSM_NET) {
-                    ret = jniApiVhsmManager.SM4(jniProxy, seckey, seckeylen, JNIAPI.ECB_DECRYPT, key, decrypt_kID, null);
-                } else {
-                    ret = jniProxy.SM1(seckey, seckeylen, JNIAPI.ECB_DECRYPT, key, decrypt_kID, null);
-                }
-                if(ret < 0){
-                    visitSafeKeyErrorCallback(ret);
-                }
-            }
-            if(ret < 0){
-                visitSafeKeyErrorCallback(ret);
-            }
-            VLog.e(TAG, "VS decryptKey ret "+ ret);
-            return key;
-        }catch (Exception e){
-            visitSafeKeyErrorCallback(-1);
-            e.printStackTrace();
-            return key;
-        }
+//        try {
+//            VLog.e(TAG, "VS decryptKey");
+//            byte decrypt_kID = 0x09;
+//            int ret = -1;
+//            if(jniProxy != null) {
+//                if (jniProxy.getCardType() == JniApiParam.TYPE_VHSM ||
+//                jniProxy.getCardType() == JniApiParam.TYPE_VHSM_NET) {
+//                    ret = jniApiVhsmManager.SM4(jniProxy, seckey, seckeylen, JNIAPI.ECB_DECRYPT, key, decrypt_kID, null);
+//                } else {
+//                    ret = jniProxy.SM1(seckey, seckeylen, JNIAPI.ECB_DECRYPT, key, decrypt_kID, null);
+//                }
+//                if(ret < 0){
+//                    visitSafeKeyErrorCallback(ret);
+//                }
+//            }
+//            if(ret < 0){
+//                visitSafeKeyErrorCallback(ret);
+//            }
+//            VLog.e(TAG, "VS decryptKey ret "+ ret);
+//            return key;
+//        }catch (Exception e){
+//            visitSafeKeyErrorCallback(-1);
+//            e.printStackTrace();
+//            return key;
+//        }
+        return key;
     }
 
     @Override

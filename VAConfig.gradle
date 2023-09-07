@@ -5,7 +5,7 @@ ext {
     PACKAGE_NAME                = "com.carlos.multiapp"
     EXT_PACKAGE_NAME            = "com.carlos.multiapp.ext"
 
-    VA_MAIN_PACKAGE_32BIT       = true
+    VA_MAIN_PACKAGE_32BIT       = false
     VA_ACCESS_PERMISSION_NAME   = "com.carlos.multiapp.permission.SAFE_ACCESS"
     VA_AUTHORITY_PREFIX         = "com.carlos.multiapp"
     VA_EXT_AUTHORITY_PREFIX     = "com.carlos.multiapp"

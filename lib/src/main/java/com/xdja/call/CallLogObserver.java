@@ -13,12 +13,13 @@ import android.os.HandlerThread;
 import android.os.Process;
 import android.os.RemoteException;
 import android.provider.CallLog;
-import android.support.annotation.NonNull;
-import android.support.v4.app.ActivityCompat;
 import android.telecom.TelecomManager;
 import android.telephony.PhoneStateListener;
 import android.telephony.TelephonyManager;
 import android.util.Log;
+
+import androidx.annotation.NonNull;
+import androidx.core.app.ActivityCompat;
 
 import com.lody.virtual.client.core.VirtualCore;
 import com.lody.virtual.client.stub.ContentProviderProxy;

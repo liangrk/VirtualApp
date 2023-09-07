@@ -13,8 +13,9 @@ import android.os.IBinder;
 import android.os.IInterface;
 import android.os.Process;
 import android.os.RemoteException;
-import android.support.annotation.IntDef;
 import android.text.TextUtils;
+
+import androidx.annotation.IntDef;
 
 import com.lody.virtual.client.VClient;
 import com.lody.virtual.client.core.VirtualCore;

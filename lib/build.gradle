@@ -23,7 +23,7 @@ android {
         ]
         externalNativeBuild {
             ndkBuild {
-                abiFilters "arm64-v8a"//"armeabi-v7a"//,
+                abiFilters "arm64-v8a", "armeabi-v7a"//,
             }
         }
     }
@@ -95,10 +95,21 @@ gradle.taskGraph.afterTask { task ->
     }
 }
 
+repositories {
+    flatDir {
+        dirs 'libs'
+    }
+}
+
 dependencies {
     implementation fileTree(include: ['*.jar'], dir: 'libs')
-    compileOnly 'com.xdja.safekeyservice:xdjacrypto:1.0.3'
-    compileOnly 'com.xdja.safekeyservice:jar_multi_jniapi:3.9.50'
-    compileOnly 'com.xdja.safekeyservice:jar_multi_unitepin:3.9.24'
+    implementation(name:'jar_multi_jniapi-3.9.50', ext:'aar')
+    implementation(name:'jar_multi_unitepin-3.9.24', ext:'aar')
+    implementation(name:'xdjacrypto-1.0.3', ext:'aar')
+    // 依赖地址
+    // http://maven.xdja.com:8081/nexus3/service/rest/repository/browse/releases
+//    compileOnly 'com.xdja.safekeyservice:xdjacrypto:1.0.3'
+//    compileOnly 'com.xdja.safekeyservice:jar_multi_jniapi:3.9.50'
+//    compileOnly 'com.xdja.safekeyservice:jar_multi_unitepin:3.9.24'
     implementation 'com.android.support:appcompat-v7:26.1.0'
 }
