@@ -8,7 +8,7 @@ android {
         //noinspection ExpiredTargetSdkVersion
         targetSdkVersion 22
 
-        buildConfigField 'String', 'VA_VERSION_NAME', '"V' + rootProject.ext.VERSION + '"'
+        buildConfigField 'String', 'VA_VERSION_NAME', '"V' + rootProject.ext.VA_VERSION + '"'
 
         if (project.hasProperty('commit')) {
             buildConfigField 'String', 'commit', '"' + commit + '"'
@@ -17,9 +17,9 @@ android {
         }
 
         manifestPlaceholders = [
-                PERMISSION_PREFIX:  rootProject.ext.PACKAGE_NAME_32BIT,
-                AUTHORITY_PREFIX :  rootProject.ext.PACKAGE_NAME_32BIT,
-                VA_VERSION       : '' + rootProject.ext.VERSION_CODE,
+                PERMISSION_PREFIX:  rootProject.ext.VA_MAIN_PACKAGE_32BIT,
+                AUTHORITY_PREFIX :  rootProject.ext.VA_MAIN_PACKAGE_32BIT,
+                VA_VERSION       : '' + rootProject.ext.VA_VERSION_CODE,
         ]
         externalNativeBuild {
             ndkBuild {

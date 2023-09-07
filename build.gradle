@@ -4,24 +4,42 @@ apply from: 'AppConfig.gradle'
 
 buildscript {
     repositories {
-        google()
+        mavenLocal()
+        maven { url "https://maven.aliyun.com/repository/public/"}
+        maven { url "https://maven.aliyun.com/repository/spring/"}
+        maven { url "https://maven.aliyun.com/repository/google/"}
+        maven { url "https://maven.aliyun.com/repository/gradle-plugin/"}
+        maven { url "https://maven.aliyun.com/repository/spring-plugin/"}
+        maven { url "https://maven.aliyun.com/repository/grails-core/"}
+        maven { url "https://maven.aliyun.com/repository/apache-snapshots/"}
+//        maven { url 'http://repo1.maven.org/maven2' }
         mavenCentral()
-        jcenter()
+//        google()
+//        mavenCentral()
     }
     dependencies {
-        classpath 'com.android.tools.build:gradle:3.5.0'
+        classpath 'com.android.tools.build:gradle:7.3.0'
         classpath 'com.android.tools.build:gradle-experimental:0.11.1'
-        classpath files('./security/messProguard.jar')
-        classpath 'com.github.megatronking.stringfog:gradle-plugin:2.2.1'
-        classpath 'com.github.megatronking.stringfog:xor:1.1.0'
+//        classpath files('./security/messProguard.jar')
+//        classpath 'com.github.megatronking.stringfog:gradle-plugin:2.2.1'
+//        classpath 'com.github.megatronking.stringfog:xor:1.1.0'
     }
 }
 
 allprojects {
     repositories {
-        google()
+        mavenLocal()
+        maven { url "https://maven.aliyun.com/repository/public/"}
+        maven { url "https://maven.aliyun.com/repository/spring/"}
+        maven { url "https://maven.aliyun.com/repository/google/"}
+        maven { url "https://maven.aliyun.com/repository/gradle-plugin/"}
+        maven { url "https://maven.aliyun.com/repository/spring-plugin/"}
+        maven { url "https://maven.aliyun.com/repository/grails-core/"}
+        maven { url "https://maven.aliyun.com/repository/apache-snapshots/"}
+//        maven { url 'http://repo1.maven.org/maven2' }
         mavenCentral()
-        jcenter()
+//        google()
+//        jcenter()
     }
 }
 
